@@ -1,0 +1,36 @@
+@import "./_variables.scss";
+@import "./components/navbar.scss";
+@import "./components/loader.scss";
+@import "./components/sections.scss";
+@import "./_responsive.scss";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  padding: 20px;
+}
+.particles-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+.bg-container{
+  background-color: black;
+  height: 100Vh;
+  width: 100%;
+}

@@ -1,0 +1,43 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  background: var(--accent-color);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  z-index: 10;
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+
+    li {
+      cursor: pointer;
+      transition: color 0.3s;
+
+      &:hover {
+        color: #ffeb3b;
+      }
+    }
+  }
+
+  .theme-toggle {
+    background: none;
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 6px 10px;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+}
