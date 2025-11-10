@@ -14,7 +14,7 @@ export default function Loader() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        Welcome to My Portfolio
+        Welcome to My Page
       </motion.h2>
     </motion.div>
   );

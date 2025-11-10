@@ -40,56 +40,10 @@ if (savedTheme === "dark") {
 
   return (
     <>
-
-       {loading ? (
-      <Loader />
-    ) : (
-      <motion.div
-        key="main"
-        className="app"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      >
-        <div className="bg-container">
-                        <Particles
-    particleColors={['#ffffff', '#ffffff']}
-    particleCount={200}
-    particleSpread={10}
-    speed={0.1}
-    particleBaseSize={100}
-    moveParticlesOnHover={true}
-    alphaParticles={false}
-    disableRotation={false}>
-        <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-        <Home />
-        <About />
-        <Experience />
-        <Projects />
-        <Skills />
-        <Contact />
-        </Particles>
-        </div>
-
-      </motion.div>
-    )}
-    
-
-
-   
-      {/* {loading ? (
+      {loading ? (
         <Loader />
       ) : (
-        <div className="bg-container">
-                <Particles
-    particleColors={['#ffffff', '#ffffff']}
-    particleCount={200}
-    particleSpread={10}
-    speed={0.1}
-    particleBaseSize={100}
-    moveParticlesOnHover={true}
-    alphaParticles={false}
-    disableRotation={false}>
+        <div>
           <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
           <Home />
           <About />
@@ -97,10 +51,8 @@ if (savedTheme === "dark") {
           <Projects />
           <Skills />
           <Contact />
-
-          </Particles>
         </div>
-      )} */}
+      )}
     </>
   );
 }
