@@ -44,7 +44,7 @@ if (savedTheme === "dark") {
         <Loader />
       ) : (
         <div>
-          <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+          {/* <Navbar darkMode={darkMode} setDarkMode={setDarkMode} /> */}
           <Home />
           <About />
           <Experience />

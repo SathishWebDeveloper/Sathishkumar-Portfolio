@@ -1,11 +1,22 @@
 :root {
+  /* Colors */
   --bg-color: #f5f5f5;
   --text-color: #222;
-  --accent-color: #3498db;
+  --muted-color: #555;
+  --accent-color: #6c1cff;
+  --btn-hover: #5819cc;
+
+  /* Breakpoints */
+  --sm: 480px;
+  --md: 768px;
+  --lg: 1024px;
+  --xl: 1280px;
 }
 
 .dark {
   --bg-color: #000;
   --text-color: #f8f8f8;
-  --accent-color: #3498db;
+  --muted-color: #9aa0c7;
+  --accent-color: #9a3cff;
+  --btn-hover: #7b34e0;
 }
