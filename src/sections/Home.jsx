@@ -23,7 +23,7 @@ export default function Home() {
       ></Particles>
 
       <Container className="home-content">
-        <Row>
+        <Row className='w-100 justify-spaceeven'>
           <Col md={6} className="home-header">
             <h1 style={{ paddingBottom: 15 }} className="heading">
               Hi There!{" "}
@@ -36,7 +36,7 @@ export default function Home() {
               I'M
               <strong className="main-name">
                 {" "}
-                Md Abu Bakkar Siddiqe Sajib
+                 SK
               </strong>
             </h1>
 

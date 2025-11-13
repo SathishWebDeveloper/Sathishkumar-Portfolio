@@ -1,5 +1,8 @@
+/* ------------------------------------
+   Base Theme (LIGHT or DEFAULT THEME)
+------------------------------------ */
 :root {
-  /* Colors */
+  /* Your original brand colors */
   --bg-color: #f5f5f5;
   --text-color: #222;
   --muted-color: #555;
@@ -11,12 +14,40 @@
   --md: 768px;
   --lg: 1024px;
   --xl: 1280px;
+
+  /* ------------------------------
+     Neon Gradient Palette (LIGHT)
+  ------------------------------ */
+  --grad-pink: #b7179e;
+  --grad-purple: #6a2cff;
+  --grad-blue: #3b7bff;
+  --grad-cyan: #4cc9f0;
+
+  /* RGB versions for transparency */
+  --grad-pink-rgb: 183, 23, 158;
+  --grad-purple-rgb: 106, 44, 255;
+  --grad-blue-rgb: 59, 123, 255;
+  --grad-cyan-rgb: 76, 201, 240;
 }
 
+/* ------------------------------------
+            DARK MODE OVERRIDES
+------------------------------------ */
 .dark {
   --bg-color: #000;
   --text-color: #f8f8f8;
   --muted-color: #9aa0c7;
   --accent-color: #9a3cff;
   --btn-hover: #7b34e0;
+
+  /* neon variations (slightly brighter in dark mode) */
+  --grad-pink: #d74bcd;
+  --grad-purple: #9a3cff;
+  --grad-blue: #4cb9ff;
+  --grad-cyan: #7ce7ff;
+
+  --grad-pink-rgb: 215, 75, 205;
+  --grad-purple-rgb: 154, 60, 255;
+  --grad-blue-rgb: 76, 185, 255;
+  --grad-cyan-rgb: 124, 231, 255;
 }

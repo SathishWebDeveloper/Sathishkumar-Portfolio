@@ -33,18 +33,19 @@ export default function App() {
   }, [darkMode]);
 
   const savedTheme = localStorage.getItem("theme") || "light";
-if (savedTheme === "dark") {
+  if (savedTheme === "dark") {
   document.documentElement.classList.add("dark");
-}
+  }
 
 
   return (
     <>
-      {loading ? (
+    {/* <>
+          {loading ? (
         <Loader />
       ) : (
         <div>
-          {/* <Navbar darkMode={darkMode} setDarkMode={setDarkMode} /> */}
+          <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
           <Home />
           <About />
           <Experience />
@@ -53,6 +54,16 @@ if (savedTheme === "dark") {
           <Contact />
         </div>
       )}
+    </> */}
+        <div>
+          <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+          <Home />
+          <About />
+          <Experience />
+          <Projects />
+          <Skills />
+          <Contact />
+        </div>
     </>
   );
 }

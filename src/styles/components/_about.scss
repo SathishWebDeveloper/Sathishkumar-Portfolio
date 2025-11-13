@@ -1,0 +1,145 @@
+/* -------------------------
+   Responsive Mixins
+------------------------- */
+@mixin bp-sm { @media (max-width: var(--sm)) { @content; } }
+@mixin bp-md { @media (max-width: var(--md)) { @content; } }
+@mixin bp-lg { @media (max-width: var(--lg)) { @content; } }
+@mixin bp-xl { @media (max-width: var(--xl)) { @content; } }
+
+/* -------------------------
+   About Section
+------------------------- */
+.about-section {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 1.5rem;
+  min-height: 60vh;
+
+  /* Neon radial blobs using only variables */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(var(--grad-pink-rgb), 0.23) 0%, transparent 28%),
+      radial-gradient(circle at 80% 40%, rgba(var(--grad-blue-rgb), 0.23) 0%, transparent 32%),
+      radial-gradient(circle at 60% 80%, rgba(var(--grad-purple-rgb), 0.18) 0%, transparent 34%);
+    filter: blur(40px) saturate(120%);
+    opacity: 0.95;
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+/* -------------------------
+   Gradient Divider Line
+------------------------- */
+.about-divider {
+  width: 100%;
+  height: 4px;
+  margin: 2.5rem 0;
+  border-radius: 999px;
+
+  background: linear-gradient(
+    90deg,
+    var(--grad-pink),
+    var(--grad-purple),
+    var(--grad-blue),
+    var(--grad-cyan)
+  );
+
+  &::after {
+    content: "";
+    display: block;
+    height: 6px;
+    border-radius: 999px;
+    background: inherit;
+    filter: blur(12px);
+    opacity: 0.28;
+    margin-top: 6px;
+  }
+}
+
+/* -------------------------
+   Content Layout
+------------------------- */
+.about-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 2rem;
+  border-radius: 14px;
+
+  /* Glass effect only in dark mode */
+  .dark & {
+    background: rgba(10, 10, 12, 0.55);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  }
+
+  @include bp-md {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+.left {
+  width: 36%;
+  display: flex;
+  justify-content: center;
+  @include bp-md { width: 100%; }
+}
+
+.right {
+  width: 64%;
+  @include bp-md { width: 100%; }
+}
+
+/* -------------------------
+   Icon Box
+------------------------- */
+.about-icon {
+  width: 200px;
+  height: 200px;
+  border-radius: 16px;
+  background: linear-gradient(
+    135deg,
+    rgba(var(--grad-purple-rgb), 0.25),
+    rgba(var(--grad-blue-rgb), 0.18)
+  );
+  box-shadow: 0 10px 30px rgba(var(--grad-pink-rgb), 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include bp-md {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+/* -------------------------
+   Typography
+------------------------- */
+.about-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text-color);
+
+  @include bp-md {
+    font-size: 1.9rem;
+  }
+}
+
+.about-paragraph {
+  color: var(--muted-color);
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 48rem;
+}

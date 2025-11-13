@@ -11,10 +11,17 @@
   z-index: 1;
 }
 
+ .home-section{
+      display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+
  .home-content {
-    padding: 9rem 0 2rem !important;
-    color: whitesmoke;
-    text-align: left;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .heading {

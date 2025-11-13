@@ -4,6 +4,7 @@
 @use "./components/sections" as *;
 @use "./responsive" as *;
 @use "./components/home" as *;
+@use "./components/about" as *;
 
 html,
 body {
@@ -44,4 +45,10 @@ body {
     color: rgb(117, 0, 250) !important;
     font-size: 2.2em !important;
     font-weight: 600 !important;
+}
+ .w-100{
+  width: 100%;
+ }
+.justify-spaceeven{
+  justify-content: space-evenly;
 }
