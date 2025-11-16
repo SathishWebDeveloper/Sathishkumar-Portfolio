@@ -59,7 +59,7 @@ export default function App() {
           <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
           <Home />
           <About />
-          <Experience />
+          {/* <Experience /> */}
           <Projects />
           <Skills />
           <Contact />

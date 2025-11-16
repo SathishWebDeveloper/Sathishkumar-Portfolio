@@ -18,19 +18,19 @@
   min-height: 60vh;
 
   /* Neon radial blobs using only variables */
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image:
-      radial-gradient(circle at 20% 20%, rgba(var(--grad-pink-rgb), 0.23) 0%, transparent 28%),
-      radial-gradient(circle at 80% 40%, rgba(var(--grad-blue-rgb), 0.23) 0%, transparent 32%),
-      radial-gradient(circle at 60% 80%, rgba(var(--grad-purple-rgb), 0.18) 0%, transparent 34%);
-    filter: blur(40px) saturate(120%);
-    opacity: 0.95;
-    pointer-events: none;
-    z-index: 0;
-  }
+  // &::before {
+  //   content: "";
+  //   position: absolute;
+  //   inset: 0;
+  //   background-image:
+  //     radial-gradient(circle at 20% 20%, rgba(var(--grad-pink-rgb), 0.23) 0%, transparent 28%),
+  //     radial-gradient(circle at 80% 40%, rgba(var(--grad-blue-rgb), 0.23) 0%, transparent 32%),
+  //     radial-gradient(circle at 60% 80%, rgba(var(--grad-purple-rgb), 0.18) 0%, transparent 34%);
+  //   filter: blur(40px) saturate(120%);
+  //   opacity: 0.95;
+  //   pointer-events: none;
+  //   z-index: 0;
+  // }
 }
 
 /* -------------------------

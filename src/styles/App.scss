@@ -5,6 +5,9 @@
 @use "./responsive" as *;
 @use "./components/home" as *;
 @use "./components/about" as *;
+@use "./components/projects" as*;
+@use "./components/skills" as*;
+@use "./components/contact" as*;
 
 html,
 body {
@@ -40,6 +43,23 @@ body {
   height: 100%;
   touch-action: none;
 }
+
+.gradient-blinds-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+// .light-rays-container {
+//   width: 100%;
+//   height: 100%;
+//   position: relative;
+//   pointer-events: none;
+//   z-index: 3;
+//   overflow: hidden;
+// }
+
 
 .Typewriter__wrapper {
     color: rgb(117, 0, 250) !important;

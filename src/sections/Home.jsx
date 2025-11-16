@@ -5,12 +5,14 @@ import Particles from "../components/Animation/Particles";
 import TypeText from "../components/TypeWriterText";
 // import { Container, Row, Col } from "react-bootstrap";
 import homeLogo from "../assets/images/home-it.png";
+import GradientBlinds from '../components/Animation/GradientBlinds';
+import LightRays from '../components/Animation/LightRays';
 // import { Col, Container, Row } from "react-bootstrap";
 
 export default function Home() {
   return (
     <section id="home" className="section">
-      <Particles
+      {/* <Particles
         particleColors={["#ffffff", "#ffffff"]}
         particleCount={200}
         particleSpread={10}
@@ -20,7 +22,20 @@ export default function Home() {
         alphaParticles={false}
         disableRotation={false}
         className={"particles-bglayout"}
-      ></Particles>
+      ></Particles> */}
+        <LightRays
+    raysOrigin="top-center"
+    raysColor="#ffffff"
+    raysSpeed={1}
+    lightSpread={0.6}
+    rayLength={1.2}
+    followMouse={true}
+    mouseInfluence={0.1}
+    noiseAmount={0.1}
+    distortion={0.05}
+    className="particles-container particles-bglayout"
+  />
+
 
       <Container className="home-content">
         <Row className='w-100 justify-spaceeven'>
