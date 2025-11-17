@@ -57,7 +57,7 @@ export default function App() {
     </> */}
         <div>
           <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-          <Home />
+          {/* <Home /> */}
           <About />
           {/* <Experience /> */}
           <Projects />

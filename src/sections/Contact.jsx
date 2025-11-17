@@ -24,65 +24,52 @@ const Contact = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     if (!validate()) return;
-
-//     if (loading) return; // prevent spam hits
-
-//     setLoading(true);
-//     setSuccessMsg("");
-
-//     try {
-//       const res = await fetch("/api/sendMail", {
-//         method: "POST",
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify(form),
-//       });
-
-// //       await fetch('/api/sendMail', {
-// //   method: 'POST',
-// //   headers: { 'Content-Type': 'application/json' },
-// //   body: JSON.stringify({ name, email, message })
-// // })
-
-//       const data = await res.json();
-
-//       if (data.success) {
-//         setSuccessMsg("Message sent successfully!");
-//         setForm({ name: "", email: "", message: "" });
-//       } else {
-//         setSuccessMsg("Failed to send message.");
-//       }
-//     } catch (error) {
-//       setSuccessMsg("Server error. Please try again.");
-//     }
-
-//     setLoading(false);
-//   };
-
-
-const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
   e.preventDefault();
   if (!validate()) return;
+  if (loading) return;
+
   setLoading(true);
+  setSuccessMsg("");
 
-  const res = await fetch('/api/sendMail', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(form),
-  });
+  // Read base URL from Vite environment
+  const base = import.meta.env.VITE_API_BASE_URL || "/";
+  const cleaned = base.endsWith("/") ? base.slice(0, -1) : base;
 
-  const data = await res.json();
-  setLoading(false);
+  console.log("API Base URL:", import.meta.env.VITE_API_BASE_URL);
 
-  if (data.success) {
-    setSuccessMsg('Message sent');
-    setForm({ name: '', email: '', message: '' });
-  } else {
-    setSuccessMsg(data.error || 'Failed to send');
+
+  // Final endpoint → /api/sendMail
+  const endpoint = `${cleaned}/api/sendMail`;
+
+  try {
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form),
+    });
+
+    const data = await res.json();
+    setLoading(false);
+
+    if (res.status === 429) {
+      setSuccessMsg("Too many requests. Please try again later.");
+      return;
+    }
+
+    if (data.success) {
+      setSuccessMsg("Message sent");
+      setForm({ name: "", email: "", message: "" });
+    } else {
+      setSuccessMsg(data.error || "Failed to send");
+    }
+  } catch (error) {
+    console.error("Network error:", error);
+    setSuccessMsg("Network error. Try again.");
+    setLoading(false);
   }
 };
+
 
   return (
     <motion.section
