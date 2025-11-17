@@ -24,36 +24,65 @@ const Contact = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!validate()) return;
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     if (!validate()) return;
 
-    if (loading) return; // prevent spam hits
+//     if (loading) return; // prevent spam hits
 
-    setLoading(true);
-    setSuccessMsg("");
+//     setLoading(true);
+//     setSuccessMsg("");
 
-    try {
-      const res = await fetch("/api/sendMail", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+//     try {
+//       const res = await fetch("/api/sendMail", {
+//         method: "POST",
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify(form),
+//       });
 
-      const data = await res.json();
+// //       await fetch('/api/sendMail', {
+// //   method: 'POST',
+// //   headers: { 'Content-Type': 'application/json' },
+// //   body: JSON.stringify({ name, email, message })
+// // })
 
-      if (data.success) {
-        setSuccessMsg("Message sent successfully!");
-        setForm({ name: "", email: "", message: "" });
-      } else {
-        setSuccessMsg("Failed to send message.");
-      }
-    } catch (error) {
-      setSuccessMsg("Server error. Please try again.");
-    }
+//       const data = await res.json();
 
-    setLoading(false);
-  };
+//       if (data.success) {
+//         setSuccessMsg("Message sent successfully!");
+//         setForm({ name: "", email: "", message: "" });
+//       } else {
+//         setSuccessMsg("Failed to send message.");
+//       }
+//     } catch (error) {
+//       setSuccessMsg("Server error. Please try again.");
+//     }
+
+//     setLoading(false);
+//   };
+
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  if (!validate()) return;
+  setLoading(true);
+
+  const res = await fetch('/api/sendMail', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(form),
+  });
+
+  const data = await res.json();
+  setLoading(false);
+
+  if (data.success) {
+    setSuccessMsg('Message sent');
+    setForm({ name: '', email: '', message: '' });
+  } else {
+    setSuccessMsg(data.error || 'Failed to send');
+  }
+};
 
   return (
     <motion.section
