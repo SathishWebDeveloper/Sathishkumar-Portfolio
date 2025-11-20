@@ -187,7 +187,7 @@ export default function SkillsSection() {
   }
 
   return (
-    <section className="skills-section dark-theme" ref={sectionRef} id="skills">
+    <section className="skills-section dark-theme section" ref={sectionRef} id="skills">
       <div className="container-inner">
         <h2 className="section-title">
           Skills <span>&</span> Experience

@@ -73,7 +73,7 @@ const Contact = () => {
 
   return (
     <motion.section
-      className="contact-section"
+      className="contact-section section"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}

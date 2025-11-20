@@ -52,7 +52,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <section className="projects-section py-5">
+    <section className="projects-section py-5 section">
       <div className="container">
         <h2 className="section-title text-center mb-4">EXPERIENCE / PERSONAL PROJECTS</h2>
 

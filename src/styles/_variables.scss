@@ -8,7 +8,6 @@
   --muted-color: #555;
   --accent-color: #6c1cff;
   --btn-hover: #5819cc;
-  
 
   /* Breakpoints */
   --sm: 480px;
@@ -29,6 +28,15 @@
   --grad-purple-rgb: 106, 44, 255;
   --grad-blue-rgb: 59, 123, 255;
   --grad-cyan-rgb: 76, 201, 240;
+
+  /* 🔹 New helpers for skills section */
+  --neon1: var(--grad-pink);
+  --neon2: var(--grad-purple);
+  --neon3: var(--grad-cyan);
+
+  /* glassmorphism card base (light mode) */
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(209, 213, 219, 0.7);
 }
 
 /* ------------------------------------
@@ -51,4 +59,13 @@
   --grad-purple-rgb: 154, 60, 255;
   --grad-blue-rgb: 76, 185, 255;
   --grad-cyan-rgb: 124, 231, 255;
+
+  /* match neons to updated dark values */
+  --neon1: var(--grad-pink);
+  --neon2: var(--grad-purple);
+  --neon3: var(--grad-cyan);
+
+  /* glassmorphism in dark mode */
+  --glass-bg: rgba(15, 23, 42, 0.92);        /* deep slate/navy */
+  --glass-border: rgba(148, 163, 184, 0.6);  /* slate border */
 }

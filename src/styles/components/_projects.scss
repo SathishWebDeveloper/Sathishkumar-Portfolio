@@ -4,7 +4,7 @@
 .projects-section .section-title {
   font-weight: 700;
   letter-spacing: 1px;
-  color: #fff;
+  color: var(--accent-color); // uses light/dark accent
 }
 
 /* allow scaling inside bootstrap columns */
@@ -20,11 +20,12 @@
   position: relative;
   backdrop-filter: blur(10px) saturate(44%);
   -webkit-backdrop-filter: blur(10px) saturate(44%);
-  background-color: rgba(255, 255, 255, 0.12);
+  /* glass background tinted by gradient color (theme-aware) */
+  background-color: rgba(var(--grad-purple-rgb), 0.16);
   border-radius: 12px;
-  border: 1px solid rgba(209, 213, 219, 0.3);
+  border: 1px solid rgba(var(--grad-blue-rgb), 0.25);
   padding: 14px;
-  color: #fff;
+  color: var(--text-color);
   display: flex;
   align-items: stretch;
   min-height: 180px;
@@ -52,13 +53,14 @@
   margin: 0 0 8px;
   font-weight: 700;
   font-size: 1.25rem;
+  color: var(--text-color);
 }
 
 .custom-card .card-text {
   margin: 0 0 10px;
   font-size: 0.95rem;
   line-height: 1.45;
-  color: #d6d6d6;
+  color: var(--muted-color);
 }
 
 .custom-card .tech-list .tech-badge {
@@ -67,16 +69,17 @@
   margin-bottom: 6px;
   padding: 0.2rem 0.5rem;
   background: transparent;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(var(--grad-cyan-rgb), 0.45);
   border-radius: 20px;
   font-size: 0.78rem;
-  color: #fff;
+  color: var(--text-color);
 }
 
 .custom-card .icon-link {
   text-decoration: none;
   font-size: 1.1rem;
   opacity: 0.9;
+  color: var(--accent-color);
 }
 
 /* ---------------------------------------------------------
@@ -91,13 +94,14 @@
   width: 35%;
   height: 100%;
   transform: skewX(-18deg);
+  /* keep this mostly white for “shine” look */
   background: linear-gradient(
     100deg,
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,0.10) 45%,
-    rgba(255,255,255,0.25) 50%,
-    rgba(255,255,255,0.10) 55%,
-    rgba(255,255,255,0) 100%
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.10) 45%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0.10) 55%,
+    rgba(255, 255, 255, 0) 100%
   );
   opacity: 0;
   pointer-events: none;
@@ -113,9 +117,11 @@
   z-index: 1;
   pointer-events: none;
   opacity: 0;
-  background: linear-gradient(135deg,
-    rgba(255,255,255,0.03),
-    rgba(0,0,0,0.10)
+  /* overlay now uses gradient variables */
+  background: linear-gradient(
+    135deg,
+    rgba(var(--grad-pink-rgb), 0.06),
+    rgba(var(--grad-blue-rgb), 0.16)
   );
   mix-blend-mode: overlay;
   transition: opacity 0.25s ease;
@@ -144,33 +150,37 @@
 
 /* ---------------------------------------------------------
    PER-CARD GLOW COLORS (data-color)
+   Using theme neon RGB variables
 --------------------------------------------------------- */
 .custom-card[data-color="purple"].glare-active,
 .custom-card[data-color="purple"]:hover {
   box-shadow:
-    0 0 18px rgba(255,255,255,0.14),
-    0 0 38px rgba(168,85,247,0.35);
+    0 0 18px rgba(255, 255, 255, 0.14),
+    0 0 38px rgba(var(--grad-purple-rgb), 0.35);
 }
 
 .custom-card[data-color="blue"].glare-active,
 .custom-card[data-color="blue"]:hover {
   box-shadow:
-    0 0 18px rgba(255,255,255,0.14),
-    0 0 38px rgba(59,130,246,0.35);
+    0 0 18px rgba(255, 255, 255, 0.14),
+    0 0 38px rgba(var(--grad-blue-rgb), 0.35);
 }
 
+/* you don’t have green/orange in vars, so we map:
+   - green → cyan
+   - orange → accent color “fake RGB” via shadow + accent */
 .custom-card[data-color="green"].glare-active,
 .custom-card[data-color="green"]:hover {
   box-shadow:
-    0 0 18px rgba(255,255,255,0.14),
-    0 0 38px rgba(16,185,129,0.35);
+    0 0 18px rgba(255, 255, 255, 0.14),
+    0 0 38px rgba(var(--grad-cyan-rgb), 0.35);
 }
 
 .custom-card[data-color="orange"].glare-active,
 .custom-card[data-color="orange"]:hover {
   box-shadow:
-    0 0 18px rgba(255,255,255,0.14),
-    0 0 38px rgba(251,146,60,0.35);
+    0 0 18px rgba(255, 255, 255, 0.14),
+    0 0 38px rgba(var(--grad-pink-rgb), 0.35);
 }
 
 /* ---------------------------------------------------------

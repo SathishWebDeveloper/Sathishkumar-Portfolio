@@ -4,9 +4,10 @@ import { Container, Row, Col } from "react-bootstrap";
 import Particles from "../components/Animation/Particles";
 import TypeText from "../components/TypeWriterText";
 // import { Container, Row, Col } from "react-bootstrap";
-import homeLogo from "../assets/images/home-it.png";
+import homeLogo from "../assets/images/developer.gif";
 import GradientBlinds from '../components/Animation/GradientBlinds';
 import LightRays from '../components/Animation/LightRays';
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 // import { Col, Container, Row } from "react-bootstrap";
 
 export default function Home() {
@@ -61,12 +62,21 @@ export default function Home() {
           </Col>
 
           <Col md={4} style={{ paddingBottom: 20 }}>
-            <img
+              
+      <DotLottieReact
+        // src="https://lottie.host/39f925b2-9799-464d-b3db-0977f093adae/YClxSBrXNB.lottie"
+        src="https://lottie.host/39f925b2-9799-464d-b3db-0977f093adae/YClxSBrXNB.lottie"
+        loop
+        autoplay
+          speed={1.2}
+       style={{ width: "550px" , height : "450px" }}
+      />
+            {/* <img
               src={homeLogo}
               alt="home pic"
               className="img-fluid"
               style={{ maxHeight: "450px" }}
-            />
+            /> */}
           </Col>
         </Row>
       </Container>
