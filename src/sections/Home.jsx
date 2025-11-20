@@ -7,15 +7,15 @@ import TypeText from "../components/TypeWriterText";
 import homeLogo from "../assets/images/developer.gif";
 import GradientBlinds from '../components/Animation/GradientBlinds';
 import LightRays from '../components/Animation/LightRays';
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+// import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 // import { Col, Container, Row } from "react-bootstrap";
 
 export default function Home() {
   return (
     <section id="home" className="section">
-      {/* <Particles
-        particleColors={["#ffffff", "#ffffff"]}
-        particleCount={200}
+      <Particles
+        particleColors={["#112149", "#112149"]}
+        particleCount={50}
         particleSpread={10}
         speed={0.1}
         particleBaseSize={100}
@@ -23,8 +23,8 @@ export default function Home() {
         alphaParticles={false}
         disableRotation={false}
         className={"particles-bglayout"}
-      ></Particles> */}
-        <LightRays
+      ></Particles>
+        {/* <LightRays
     raysOrigin="top-center"
     raysColor="#ffffff"
     raysSpeed={1}
@@ -35,7 +35,7 @@ export default function Home() {
     noiseAmount={0.1}
     distortion={0.05}
     className="particles-container particles-bglayout"
-  />
+  /> */}
 
 
       <Container className="home-content">
@@ -63,20 +63,20 @@ export default function Home() {
 
           <Col md={4} style={{ paddingBottom: 20 }}>
               
-      <DotLottieReact
-        // src="https://lottie.host/39f925b2-9799-464d-b3db-0977f093adae/YClxSBrXNB.lottie"
+      {/* <DotLottieReact
+        src="https://lottie.host/39f925b2-9799-464d-b3db-0977f093adae/YClxSBrXNB.lottie"
         src="https://lottie.host/39f925b2-9799-464d-b3db-0977f093adae/YClxSBrXNB.lottie"
         loop
         autoplay
           speed={1.2}
        style={{ width: "550px" , height : "450px" }}
-      />
-            {/* <img
+      /> */}
+            <img
               src={homeLogo}
               alt="home pic"
               className="img-fluid"
               style={{ maxHeight: "450px" }}
-            /> */}
+            />
           </Col>
         </Row>
       </Container>
