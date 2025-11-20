@@ -4,7 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import Particles from "../components/Animation/Particles";
 import TypeText from "../components/TypeWriterText";
 // import { Container, Row, Col } from "react-bootstrap";
-import homeLogo from "../assets/images/developer.gif";
+import homeLogo from "../assets/images/Developer.gif";
 import GradientBlinds from '../components/Animation/GradientBlinds';
 import LightRays from '../components/Animation/LightRays';
 // import { DotLottieReact } from "@lottiefiles/dotlottie-react";
