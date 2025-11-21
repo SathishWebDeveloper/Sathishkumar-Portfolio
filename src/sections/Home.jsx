@@ -1,21 +1,19 @@
 import React from 'react'
 import { Container, Row, Col } from "react-bootstrap";
-// import { motion } from "framer-motion";
 import Particles from "../components/Animation/Particles";
 import TypeText from "../components/TypeWriterText";
-// import { Container, Row, Col } from "react-bootstrap";
-import homeLogo from "../assets/images/Developer.gif";
+import homeLogo from "../assets/images/home-user1.png";
 import GradientBlinds from '../components/Animation/GradientBlinds';
 import LightRays from '../components/Animation/LightRays';
-// import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-// import { Col, Container, Row } from "react-bootstrap";
+import Orb from '../components/Animation/orb';
+
 
 export default function Home() {
   return (
-    <section id="home" className="section">
-      <Particles
+    <section id="home" className="section home-pagesection">
+      {/* <Particles
         particleColors={["#112149", "#112149"]}
-        particleCount={50}
+        particleCount={100}
         particleSpread={10}
         speed={0.1}
         particleBaseSize={100}
@@ -23,21 +21,14 @@ export default function Home() {
         alphaParticles={false}
         disableRotation={false}
         className={"particles-bglayout"}
-      ></Particles>
-        {/* <LightRays
-    raysOrigin="top-center"
-    raysColor="#ffffff"
-    raysSpeed={1}
-    lightSpread={0.6}
-    rayLength={1.2}
-    followMouse={true}
-    mouseInfluence={0.1}
-    noiseAmount={0.1}
-    distortion={0.05}
-    className="particles-container particles-bglayout"
-  /> */}
-
-
+      ></Particles> */}
+        <Orb
+    hoverIntensity={0.75}
+    rotateOnHover={true}
+    hue={0}
+    forceHoverState={false}
+    className={"particles-bglayout"}
+  ></Orb>
       <Container className="home-content">
         <Row className='w-100 justify-spaceeven'>
           <Col md={6} className="home-header">
@@ -62,15 +53,6 @@ export default function Home() {
           </Col>
 
           <Col md={4} style={{ paddingBottom: 20 }}>
-              
-      {/* <DotLottieReact
-        src="https://lottie.host/39f925b2-9799-464d-b3db-0977f093adae/YClxSBrXNB.lottie"
-        src="https://lottie.host/39f925b2-9799-464d-b3db-0977f093adae/YClxSBrXNB.lottie"
-        loop
-        autoplay
-          speed={1.2}
-       style={{ width: "550px" , height : "450px" }}
-      /> */}
             <img
               src={homeLogo}
               alt="home pic"
