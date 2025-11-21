@@ -1,111 +1,201 @@
+/* Navbar.scss
+   - Ensure :root and .dark variable sets are included globally BEFORE this file.
+   - This file assumes variables:
+     --glass-bg, --glass-border, --bg-color, --text-color, --muted-color,
+     --accent-color, --neon1, --neon2, --grad-*-rgb if needed
+*/
+
 .navbar {
   position: sticky;
-  top: 16px;                 // distance from top when stuck
-  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  pointer-events: auto;
+  padding: 10px 0;
+  transition: background 0.28s ease, box-shadow 0.28s ease, padding 0.2s ease;
+  /* initial full-width black bar (desktop) */
+  background: #000;
+}
 
-  /* Centered, 70% width on large screens */
-  width: 70%;
-  max-width: 1180px;
-  margin: 0 auto;
 
-  /* Glassmorphism styles */
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(18px) saturate(140%);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
-  border-radius: 999px;      // pill / fully rounded
-  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.45);
 
+/* inner container (not sticky) */
+.nav-inner {
+  width: 100%;
+  max-width: 100%;
+  padding: 8px 22px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
+  gap: 1rem;
+  transition: max-width 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    padding 0.2s ease, width 0.32s ease;
+}
 
+/* left title */
+.nav-left {
+  flex: 0 0 auto;
+  font-weight: 600;
+  font-size: 1rem;
   color: var(--text-color);
+  white-space: nowrap;
+}
 
-  /* Smooth transition when theme changes */
-  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+/* center nav */
+.nav-center {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
 
-  /* Left logo/title */
-  .nav-left {
-    font-weight: 600;
-    font-size: 1.1rem;
-    letter-spacing: 0.03em;
-    color: var(--text-color);
-    white-space: nowrap;
-  }
-
-  /* Links */
   .nav-links {
     display: flex;
+    gap: 1.3rem;
     align-items: center;
-    gap: 1.5rem;
     list-style: none;
-    margin: 0 1rem;
+    margin: 0;
     padding: 0;
 
-    li {
-      position: relative;
-      font-size: 0.95rem;
-      font-weight: 500;
-      text-transform: capitalize;
+    .nav-link {
       cursor: pointer;
-      color: var(--muted-color);
-      transition: color 0.2s ease, transform 0.2s ease;
+      color: var(--text-color); /* ensure visible text */
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-transform: capitalize;
+      position: relative;
+      user-select: none;
+      transition: color 0.18s ease, transform 0.18s ease;
 
       &::after {
         content: "";
         position: absolute;
         left: 0;
-        bottom: -4px;
-        width: 0;
+        bottom: -6px;
         height: 2px;
+        width: 0%;
         border-radius: 999px;
         background: linear-gradient(90deg, var(--neon1), var(--neon2));
-        transition: width 0.2s ease;
+        transition: width 0.18s ease;
       }
 
       &:hover {
         color: var(--accent-color);
-        transform: translateY(-1px);
+      }
 
+      &:hover::after {
+        width: 100%;
+      }
+
+      &.active {
+        color: var(--accent-color);
+        font-weight: 700;
         &::after {
           width: 100%;
         }
+        /* subtle glow (uses purple RGB variable for faint effect) */
+        text-shadow: 0 0 6px rgba(var(--grad-purple-rgb, 106,44,255), 0.06);
       }
     }
   }
+}
 
-  /* Theme toggle wrapper (optional tweak) */
+/* right section (theme toggle) */
+.nav-right {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
   .theme-toggle {
-    flex-shrink: 0;
+    display: flex;
+    align-items: center;
   }
+}
 
-  /* 🌐 Responsive behavior */
-  @media (max-width: 1024px) {
-    width: 80%;
+/* -------------------------
+   TOP-OF-PAGE state (initial)
+   full-width black bar
+   ------------------------- */
+.navbar.navbar--top {
+  background: #000;
+  border-radius: 0;
+  border: none;
+  backdrop-filter: none;
+  box-shadow: none;
+
+  .nav-inner {
+    max-width: 100%;
+    padding-left: 28px;
+    padding-right: 28px;
   }
+}
 
-  @media (max-width: 768px) {
-    width: calc(100% - 2rem);     // almost full width, with side padding
+/* -------------------------
+   SCROLLED state: centered, 70% width, glass pill
+   ------------------------- */
+.navbar.navbar--scrolled {
+  position: sticky;
+  top: 2% !important;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.32);
+  padding: 8px 0;
+  width: 80%;
+  margin: auto;
+
+  .nav-inner {
+    max-width: 70%;
+    width: 70%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* -------------------------
+   Responsive (mobile)
+   full width, no glass effect for better contrast/performance
+   ------------------------- */
+@media (max-width: 768px) {
+  .nav-inner {
+    width: 100%;
+    max-width: 100%;
     padding: 8px 14px;
-    gap: 0.75rem;
-
-    .nav-left {
-      font-size: 0.95rem;
-    }
-
-    .nav-links {
-      gap: 0.9rem;
-      font-size: 0.85rem;
-      overflow-x: auto;          // if many links on very small width
-      padding-bottom: 2px;
-    }
   }
 
-  @media (max-width: 480px) {
-    .nav-left {
-      display: none;             // optional: hide title on very small screens
+  .navbar.navbar--scrolled {
+    background: var(--bg-color); /* uses your light/dark background var */
+    border: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    border-radius: 0;
+  }
+
+  .nav-left {
+    font-size: 0.95rem;
+  }
+
+  .nav-center {
+    .nav-links {
+      gap: 1rem;
+      font-size: 0.92rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
+  }
+}
+
+/* very small screens: hide left title to save space */
+@media (max-width: 480px) {
+  .nav-left {
+    display: none;
+  }
+  .nav-center .nav-links {
+    gap: 0.9rem;
   }
 }
