@@ -75,6 +75,14 @@ export default function App() {
   // show initial Loader while waiting
   if (loading) return <Loader />;
 
+  // run once and on resize to set a --vh custom property
+function setVh() {
+  document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+}
+setVh();
+window.addEventListener('resize', setVh);
+
+
   return (
     <Router>
       <div>

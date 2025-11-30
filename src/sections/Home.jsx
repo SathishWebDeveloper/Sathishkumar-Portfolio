@@ -36,7 +36,7 @@ export default function Home() {
               </strong>
             </h1>
 
-            <div>
+            <div className='mb-4'>
               <TypeText />
             </div>
           </Col>

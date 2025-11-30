@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { motion, useScroll, useTransform } from "framer-motion";
+import aboutLogo from "../assets/images/Developer.gif";
 
 export default function About() {
   const sectionRef = useRef(null);
@@ -15,39 +16,39 @@ export default function About() {
   const y = useTransform(scrollYProgress, [0, 0.3, 1], [30, 0, -20]); // y is MotionValue
 
   return (
-    <section className="about-section section" ref={sectionRef} id="about">
+    <section className="section home-pagesection" ref={sectionRef} id="about">
       <Container>
         <Row className="justify-content-center">
           <Col lg={10}>
-            <div className="text-center" style={{ paddingTop: "1rem", paddingBottom: "1rem" }}>
-              <h2 style={{ fontSize: "2.75rem", color: "var(--text-color)", margin: 0 }}>
-                Hi There! <span role="img" aria-label="wave">👋</span>
+            <div className="text-center about-titlecontainer">
+              <h2 className="content-title mb-2">
+                About Me <span role="img" aria-label="wave">👨‍💻</span>
               </h2>
-              <p style={{ color: "var(--muted-color)", marginTop: "0.75rem" }}>WELCOME TO MY PORTFOLIO!</p>
+              <p className="content-subheader">SATHISHKUMAR V C</p>
             </div>
 
             <div className="about-divider" />
 
             <div className="about-content">
               <div className="left">
-                <div className="about-icon">
-                  {/* your SVG */}
-                </div>
+
+                  <img src={aboutLogo} className="w-100"/>
               </div>
 
               <div className="right">
-                <div className="about-title">ABOUT ME</div>
+                <div className="content-subtitle mb-3">Full Stack Web Developer</div>
 
                 {/* Correct usage: pass motion values directly as style props */}
                 <motion.p
-                  className="about-paragraph"
-                  style={{ opacity, y }}   // <-- pass MotionValues directly
+                  className="content-paragraph"
                 >
-                  I am a passionate developer with experience in building web applications.
-                  I focus on creating performant, accessible, and delightful user experiences
-                  using modern tools and libraries. I enjoy solving problems, learning new
-                  technologies, and building products that have real impact.
+                  Full Stack Developer with 3+ years of hands-on experience building responsive web applications. Proficient in React.js, Node.js, Express, MongoDB, and MySQL, with a strong knowledge of AWS for cloud deployment. Skilled in performance optimization, reusable component architecture, and delivering scalable solutions in Agile environments.
                 </motion.p>
+              </div>
+
+              <div className="floating-circles" aria-hidden="true">
+                <div className="circle c1" />
+                <div className="circle c2" />
               </div>
             </div>
           </Col>

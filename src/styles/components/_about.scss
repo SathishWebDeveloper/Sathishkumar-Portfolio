@@ -16,30 +16,16 @@
   overflow: hidden;
   padding: 6rem 1.5rem;
   min-height: 60vh;
-
-  /* Neon radial blobs using only variables */
-  // &::before {
-  //   content: "";
-  //   position: absolute;
-  //   inset: 0;
-  //   background-image:
-  //     radial-gradient(circle at 20% 20%, rgba(var(--grad-pink-rgb), 0.23) 0%, transparent 28%),
-  //     radial-gradient(circle at 80% 40%, rgba(var(--grad-blue-rgb), 0.23) 0%, transparent 32%),
-  //     radial-gradient(circle at 60% 80%, rgba(var(--grad-purple-rgb), 0.18) 0%, transparent 34%);
-  //   filter: blur(40px) saturate(120%);
-  //   opacity: 0.95;
-  //   pointer-events: none;
-  //   z-index: 0;
-  // }
 }
 
-/* -------------------------
-   Gradient Divider Line
-------------------------- */
+.about-titlecontainer{
+  padding: 10px 0px;
+}
+
 .about-divider {
   width: 100%;
   height: 4px;
-  margin: 2.5rem 0;
+  margin: 2rem 0;
   border-radius: 999px;
 
   background: linear-gradient(
@@ -58,7 +44,6 @@
     background: inherit;
     filter: blur(12px);
     opacity: 0.28;
-    margin-top: 6px;
   }
 }
 
@@ -73,6 +58,7 @@
   gap: 2.5rem;
   padding: 2rem;
   border-radius: 14px;
+  overflow: hidden;  
 
   /* Glass effect only in dark mode */
   .dark & {
@@ -142,4 +128,85 @@
   font-size: 1rem;
   line-height: 1.7;
   max-width: 48rem;
+}
+
+.about-content {
+  position: relative; /* container for absolutely positioned circles */
+  overflow: hidden;   /* keep circles inside the container */
+}
+
+/* container just to keep markup semantic (optional) */
+.floating-circles {
+  position: absolute;
+  inset: 0; /* stretch to cover the container */
+  pointer-events: none; /* circles shouldn't block clicks */
+  z-index: 0; /* behind content; adjust if needed */
+}
+
+/* base circle style */
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: 0.85;
+  mix-blend-mode: screen;
+  transform: translate3d(0,0,0);
+}
+
+/* circle 1 */
+.circle.c1 {
+  width: 80px;
+  height: 80px;
+  background: var(--grad-cyan);
+  left: 10%;
+  top: 10%;
+  animation: floatPath1 14s linear infinite;
+  z-index: 0;
+}
+
+/* circle 2 */
+.circle.c2 {
+  width: 30px;
+  height: 30px;
+  background: var(--grad-blue);
+  right: 8%;
+  bottom: 12%;
+  animation: floatPath2 18s linear infinite;
+  z-index: 0;
+}
+
+/* keyframes: different smooth paths so they don't overlap too much */
+@keyframes floatPath1 {
+  0%   { transform: translate3d(0,0,0) scale(1); }
+  25%  { transform: translate3d(18%, -8%, 0) scale(1.05); }
+  50%  { transform: translate3d(-6%, 12%, 0) scale(0.98); }
+  75%  { transform: translate3d(12%, 18%, 0) scale(1.02); }
+  100% { transform: translate3d(0,0,0) scale(1); }
+}
+
+@keyframes floatPath2 {
+  0%   { transform: translate3d(0,0,0) scale(1); }
+  20%  { transform: translate3d(-16%, 8%, 0) scale(0.98); }
+  40%  { transform: translate3d(6%, -12%, 0) scale(1.03); }
+  60%  { transform: translate3d(-8%, -18%, 0) scale(0.99); }
+  80%  { transform: translate3d(10%, 10%, 0) scale(1.01); }
+  100% { transform: translate3d(0,0,0) scale(1); }
+}
+
+/* keep content above circles */
+.about-content > .left,
+.about-content > .right {
+  position: relative;
+  z-index: 1;
+}
+
+/* responsive tweaks */
+@media (max-width: 768px) {
+  .circle.c1 { width: 110px; height: 110px; }
+  .circle.c2 { width: 80px; height: 80px; }
+  .circle { opacity: 0.9; }
+
+  .about-content{
+    flex-direction: column;
+  }
 }

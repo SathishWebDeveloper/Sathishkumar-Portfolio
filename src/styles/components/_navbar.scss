@@ -85,10 +85,12 @@
       &.active {
         color: var(--accent-color);
         font-weight: 700;
+
         &::after {
           width: 100%;
         }
-        text-shadow: 0 0 6px rgba(var(--grad-purple-rgb, 106,44,255), 0.06);
+
+        text-shadow: 0 0 6px rgba(var(--grad-purple-rgb, 106, 44, 255), 0.06);
       }
     }
   }
@@ -107,95 +109,101 @@
     border-radius: 50%;
     width: 40px;
     height: 40px;
+    background-color: #ffffff;
   }
 
-  /* From Uiverse.io by Type-Delta */ 
-/* a clone from joshwcomeau.com 
- * but this version runs on pure CSS
- */
+  .themeToggle {
+    color: #FF9F00;
+    width: 1.7em;
+    margin: auto;
+  }
 
-.themeToggle {
-  color: #FF9F00;
-  width: 3em;
-}
+  .st-sunMoonThemeToggleBtn {
+    position: relative;
+    cursor: pointer;
+  }
 
-.st-sunMoonThemeToggleBtn {
-  position: relative;
-  cursor: pointer;
-}
+  .st-sunMoonThemeToggleBtn .themeToggleInput {
+    opacity: 0;
+    width: 100%;
+    aspect-ratio: 1;
+  }
 
-.st-sunMoonThemeToggleBtn .themeToggleInput {
-  opacity: 0;
-  width: 100%;
-  aspect-ratio: 1;
-}
+  .st-sunMoonThemeToggleBtn svg {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.4s ease;
+    transform: rotate(40deg);
+  }
 
-.st-sunMoonThemeToggleBtn svg {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.4s ease;
-  transform: rotate(40deg);
-}
+  .st-sunMoonThemeToggleBtn svg .sunMoon {
+    transform-origin: center center;
+    transition: inherit;
+    transform: scale(0.8);
+  }
 
-.st-sunMoonThemeToggleBtn svg .sunMoon {
-  transform-origin: center center;
-  transition: inherit;
-  transform: scale(1);
-}
-
-.st-sunMoonThemeToggleBtn svg .sunRay {
-  transform-origin: center center;
-  transform: scale(0);
-}
-
-.st-sunMoonThemeToggleBtn svg mask > circle {
-  transition: transform 0.64s cubic-bezier(0.41, 0.64, 0.32, 1.575);
-  transform: translate(0px, 0px);
-}
-
-.st-sunMoonThemeToggleBtn svg .sunRay2 {
-  animation-delay: 0.05s !important;
-}
-.st-sunMoonThemeToggleBtn svg .sunRay3 {
-  animation-delay: 0.1s !important;
-}
-.st-sunMoonThemeToggleBtn svg .sunRay4 {
-  animation-delay: 0.17s !important;
-}
-.st-sunMoonThemeToggleBtn svg .sunRay5 {
-  animation-delay: 0.25s !important;
-}
-.st-sunMoonThemeToggleBtn svg .sunRay5 {
-  animation-delay: 0.29s !important;
-}
-
-.st-sunMoonThemeToggleBtn .themeToggleInput:checked + svg {
-  transform: rotate(90deg);
-}
-.st-sunMoonThemeToggleBtn .themeToggleInput:checked + svg mask > circle {
-  transform: translate(16px, -3px);
-}
-.st-sunMoonThemeToggleBtn .themeToggleInput:checked + svg .sunMoon {
-  transform: scale(0.55);
-}
-.st-sunMoonThemeToggleBtn .themeToggleInput:checked + svg .sunRay {
-  animation: showRay1832 0.4s ease 0s 1 forwards;
-}
-
-@keyframes showRay1832 {
-  0% {
+  .st-sunMoonThemeToggleBtn svg .sunRay {
+    transform-origin: center center;
     transform: scale(0);
   }
-  100% {
-    transform: scale(1);
+
+  .st-sunMoonThemeToggleBtn svg mask>circle {
+    transition: transform 0.64s cubic-bezier(0.41, 0.64, 0.32, 1.575);
+    transform: translate(0px, 0px);
   }
-}
+
+  .st-sunMoonThemeToggleBtn svg .sunRay2 {
+    animation-delay: 0.05s !important;
+  }
+
+  .st-sunMoonThemeToggleBtn svg .sunRay3 {
+    animation-delay: 0.1s !important;
+  }
+
+  .st-sunMoonThemeToggleBtn svg .sunRay4 {
+    animation-delay: 0.17s !important;
+  }
+
+  .st-sunMoonThemeToggleBtn svg .sunRay5 {
+    animation-delay: 0.25s !important;
+  }
+
+  .st-sunMoonThemeToggleBtn svg .sunRay5 {
+    animation-delay: 0.29s !important;
+  }
+
+  .st-sunMoonThemeToggleBtn .themeToggleInput:checked+svg {
+    transform: rotate(90deg);
+  }
+
+  .st-sunMoonThemeToggleBtn .themeToggleInput:checked+svg mask>circle {
+    transform: translate(16px, -3px);
+  }
+
+  .st-sunMoonThemeToggleBtn .themeToggleInput:checked+svg .sunMoon {
+    transform: scale(0.55);
+  }
+
+  .st-sunMoonThemeToggleBtn .themeToggleInput:checked+svg .sunRay {
+    animation: showRay1832 0.4s ease 0s 1 forwards;
+  }
+
+  @keyframes showRay1832 {
+    0% {
+      transform: scale(0);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
 
 
   .hamburger {
-    display: none; /* shown on mobile via media queries */
+    display: none;
+    /* shown on mobile via media queries */
     width: 44px;
     height: 36px;
     border: none;
@@ -219,9 +227,11 @@
   .hamburger.open .hamburger__bar:nth-child(1) {
     transform: translateY(6px) rotate(45deg);
   }
+
   .hamburger.open .hamburger__bar:nth-child(2) {
     opacity: 0;
   }
+
   .hamburger.open .hamburger__bar:nth-child(3) {
     transform: translateY(-6px) rotate(-45deg);
   }
@@ -241,7 +251,7 @@
   padding: 10px 0;
   position: absolute;
   top: 0%;
-  
+
 
   .nav-inner {
     max-width: 100%;
@@ -256,17 +266,17 @@
 .navbar.navbar--scrolled {
   position: sticky;
   top: 2% !important;
-    padding: 8px 0;
+  padding: 8px 0;
   width: 80%;
   margin: auto;
   border: 1px solid var(--glass-border);
   border-radius: 999px;
-      background-color: rgba(0, 0, 0, .62);
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
-    box-shadow: 2px 4px 12px #151c00;
-    border: 1px solid rgba(195, 255, 0, .169);
-     animation: fadeInDown 0.6s ease-in-out 0s 1 normal running;
+  background-color: rgba(0, 0, 0, .62);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  box-shadow: 2px 4px 12px #151c00;
+  border: 1px solid rgba(195, 255, 0, .169);
+  animation: fadeInDown 0.6s ease-in-out 0s 1 normal running;
 
 
   transition: background 0.28s ease, box-shadow 0.28s ease, padding 0.2s ease, transform 0.36s ease;
@@ -279,7 +289,7 @@
   }
 }
 
-/* From Uiverse.io by JulanDeAlb */ 
+/* From Uiverse.io by JulanDeAlb */
 .hamburger {
   cursor: pointer;
 }
@@ -303,18 +313,18 @@
   stroke-width: 3;
   /* Define the transition for transforming the Stroke */
   transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
-              stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .line-top-bottom {
   stroke-dasharray: 12 63;
 }
 
-.hamburger input:checked + svg {
+.hamburger input:checked+svg {
   transform: rotate(-45deg);
 }
 
-.hamburger input:checked + svg .line-top-bottom {
+.hamburger input:checked+svg .line-top-bottom {
   stroke-dasharray: 20 300;
   stroke-dashoffset: -32.42;
 }
@@ -348,7 +358,8 @@
   }
 
   .nav-center {
-    display: none; /* hide horizontal links on small screens */
+    display: none;
+    /* hide horizontal links on small screens */
   }
 
   .nav-right {
@@ -379,7 +390,8 @@
 
   .mobile-menu__panel {
     position: relative;
-    margin-top: 78px; /* show below navbar */
+    margin-top: 78px;
+    /* show below navbar */
     width: calc(100% - 40px);
     max-width: 520px;
     border-radius: 12px;
@@ -408,12 +420,12 @@
 
       &:hover {
         transform: translateY(-2px);
-        background: rgba(255,255,255,0.02);
+        background: rgba(255, 255, 255, 0.02);
       }
 
       &.active {
         color: var(--accent-color);
-        background: linear-gradient(90deg, rgba(var(--grad-purple-rgb, 106,44,255),0.06), transparent);
+        background: linear-gradient(90deg, rgba(var(--grad-purple-rgb, 106, 44, 255), 0.06), transparent);
       }
     }
   }
@@ -430,11 +442,13 @@
   .nav-left {
     display: none;
   }
-    .nav-right {
+
+  .nav-right {
     width: 100%;
     justify-content: space-between;
   }
-  .navbar.navbar--scrolled{
+
+  .navbar.navbar--scrolled {
     top: 0% !important;
     border-bottom: 1px solid white;
   }
@@ -445,6 +459,7 @@
     opacity: 0;
     transform: translateY(-20px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
