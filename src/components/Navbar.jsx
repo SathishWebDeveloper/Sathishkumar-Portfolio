@@ -10,15 +10,6 @@ export default function Navbar({ darkMode, setDarkMode }) {
   const [activeSection, setActiveSection] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // detect scroll to toggle scrolled state
-  // useEffect(() => {
-  //   const onScroll = () => setIsScrolled(window.scrollY > 40);
-  //   onScroll();
-  //   window.addEventListener("scroll", onScroll, { passive: true });
-  //   return () => window.removeEventListener("scroll", onScroll);
-  // }, []);
-
-    // Hysteresis thresholds: prevents flicker near edges
   useEffect(() => {
     const enterAt = 200; // only go to scrolled when > 100
     const exitAt = 40; // only go back to top when < 20
@@ -154,7 +145,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
             </div>
 
             {/* Hamburger visible on small screens */}
-            <button
+            {/* <button
               className={`hamburger ${menuOpen ? "open" : ""}`}
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
@@ -163,7 +154,15 @@ export default function Navbar({ darkMode, setDarkMode }) {
               <span className="hamburger__bar" />
               <span className="hamburger__bar" />
               <span className="hamburger__bar" />
-            </button>
+            </button> */}
+            <label className="hamburger"               aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen} >
+  <input type="checkbox" onClick={() => setMenuOpen((v) => !v)} />
+  <svg viewBox="0 0 32 32">
+    <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+    <path class="line" d="M7 16 27 16"></path>
+  </svg>
+</label>
           </div>
         </div>
       </motion.header>
@@ -205,9 +204,9 @@ export default function Navbar({ darkMode, setDarkMode }) {
                 </ul>
               </nav>
 
-              <div className="mobile-menu__footer">
+              {/* <div className="mobile-menu__footer">
                 <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
-              </div>
+              </div> */}
             </motion.div>
             <div
               className="mobile-menu__backdrop"

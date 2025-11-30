@@ -34,7 +34,7 @@
   flex: 0 0 auto;
   font-weight: 600;
   font-size: 1rem;
-  color: var(--text-color);
+  color: var(--default-color);
   white-space: nowrap;
 }
 
@@ -54,7 +54,7 @@
 
     .nav-link {
       cursor: pointer;
-      color: var(--text-color);
+      color: var(--default-color);
       font-weight: 500;
       font-size: 0.95rem;
       text-transform: capitalize;
@@ -104,7 +104,95 @@
   .theme-toggle {
     display: flex;
     align-items: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
   }
+
+  /* From Uiverse.io by Type-Delta */ 
+/* a clone from joshwcomeau.com 
+ * but this version runs on pure CSS
+ */
+
+.themeToggle {
+  color: #FF9F00;
+  width: 3em;
+}
+
+.st-sunMoonThemeToggleBtn {
+  position: relative;
+  cursor: pointer;
+}
+
+.st-sunMoonThemeToggleBtn .themeToggleInput {
+  opacity: 0;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.st-sunMoonThemeToggleBtn svg {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease;
+  transform: rotate(40deg);
+}
+
+.st-sunMoonThemeToggleBtn svg .sunMoon {
+  transform-origin: center center;
+  transition: inherit;
+  transform: scale(1);
+}
+
+.st-sunMoonThemeToggleBtn svg .sunRay {
+  transform-origin: center center;
+  transform: scale(0);
+}
+
+.st-sunMoonThemeToggleBtn svg mask > circle {
+  transition: transform 0.64s cubic-bezier(0.41, 0.64, 0.32, 1.575);
+  transform: translate(0px, 0px);
+}
+
+.st-sunMoonThemeToggleBtn svg .sunRay2 {
+  animation-delay: 0.05s !important;
+}
+.st-sunMoonThemeToggleBtn svg .sunRay3 {
+  animation-delay: 0.1s !important;
+}
+.st-sunMoonThemeToggleBtn svg .sunRay4 {
+  animation-delay: 0.17s !important;
+}
+.st-sunMoonThemeToggleBtn svg .sunRay5 {
+  animation-delay: 0.25s !important;
+}
+.st-sunMoonThemeToggleBtn svg .sunRay5 {
+  animation-delay: 0.29s !important;
+}
+
+.st-sunMoonThemeToggleBtn .themeToggleInput:checked + svg {
+  transform: rotate(90deg);
+}
+.st-sunMoonThemeToggleBtn .themeToggleInput:checked + svg mask > circle {
+  transform: translate(16px, -3px);
+}
+.st-sunMoonThemeToggleBtn .themeToggleInput:checked + svg .sunMoon {
+  transform: scale(0.55);
+}
+.st-sunMoonThemeToggleBtn .themeToggleInput:checked + svg .sunRay {
+  animation: showRay1832 0.4s ease 0s 1 forwards;
+}
+
+@keyframes showRay1832 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 
   .hamburger {
     display: none; /* shown on mobile via media queries */
@@ -151,6 +239,8 @@
   box-shadow: none;
   transform-origin: center;
   padding: 10px 0;
+  position: absolute;
+  top: 0%;
   
 
   .nav-inner {
@@ -169,45 +259,11 @@
     padding: 8px 0;
   width: 80%;
   margin: auto;
-  // background: var(--glass-bg);
   border: 1px solid var(--glass-border);
-  // backdrop-filter: blur(14px) saturate(120%);
-  // -webkit-backdrop-filter: blur(14px) saturate(120%);
   border-radius: 999px;
-  // box-shadow: 0 10px 30px rgba(2, 6, 23, 0.32);
-    // background: 
-    // radial-gradient(
-    //   50.45% 50.61% at 25.81% 42.66%,
-    //   rgba(255, 255, 255, 0.1) 0%,
-    //   rgba(255, 255, 255, 0.02) 100%
-    // ),
-    // linear-gradient(
-    //   90deg,
-    //   rgba(95, 91, 140, 0.02) 89.38%,
-    //   rgba(255, 193, 0, 0.02) 100%
-    // );
-  
-  // Border
-  // border: 0.2px solid transparent;
-  // border-image-source: linear-gradient(
-  //   115.25deg,
-  //   rgba(129, 4, 102, 0.2) 0%,
-  //   rgba(129, 4, 102, 0.5) 0%,
-  //   #fc9ccc 0.01%,
-  //   rgba(255, 254, 255, 0.2) 53.13%,
-  //   rgba(252, 156, 204, 0.2) 100%
-  // );
-  // border-image-slice: 1;
-
-  // Blur effect
-  // backdrop-filter: blur(60px);
-
-  // Shadow
-  // box-shadow: 0px 8px 30px 0px #0200204d;
       background-color: rgba(0, 0, 0, .62);
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
-    // background: #bcf013;
     box-shadow: 2px 4px 12px #151c00;
     border: 1px solid rgba(195, 255, 0, .169);
      animation: fadeInDown 0.6s ease-in-out 0s 1 normal running;
@@ -223,6 +279,46 @@
   }
 }
 
+/* From Uiverse.io by JulanDeAlb */ 
+.hamburger {
+  cursor: pointer;
+}
+
+.hamburger input {
+  display: none;
+}
+
+.hamburger svg {
+  /* The size of the SVG defines the overall size */
+  height: 3em;
+  /* Define the transition for transforming the SVG */
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line {
+  fill: none;
+  stroke: white;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+  /* Define the transition for transforming the Stroke */
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+              stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line-top-bottom {
+  stroke-dasharray: 12 63;
+}
+
+.hamburger input:checked + svg {
+  transform: rotate(-45deg);
+}
+
+.hamburger input:checked + svg .line-top-bottom {
+  stroke-dasharray: 20 300;
+  stroke-dashoffset: -32.42;
+}
+
 /* -------------------------
    Mobile & responsive rules
    ------------------------- */
@@ -234,7 +330,7 @@
   }
 
   .navbar.navbar--scrolled {
-    background: var(--bg-color);
+    background: var(--dark-color);
     border: none;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
@@ -244,6 +340,7 @@
     top: 0;
     margin: 0;
     padding: 8px 0;
+    border-bottom: 1px solid white;
   }
 
   .nav-left {
@@ -332,6 +429,14 @@
 @media (max-width: 420px) {
   .nav-left {
     display: none;
+  }
+    .nav-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .navbar.navbar--scrolled{
+    top: 0% !important;
+    border-bottom: 1px solid white;
   }
 }
 

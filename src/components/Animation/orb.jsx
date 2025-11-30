@@ -265,5 +265,5 @@ export default function Orb({ hue = 0, hoverIntensity = 0.2, rotateOnHover = tru
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hue, hoverIntensity, rotateOnHover, forceHoverState]);
 
-  return <div ref={ctnDom} className="orb-container" />;
+  return <div ref={ctnDom} className="orb-container particles-bglayout" />;
 }

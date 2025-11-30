@@ -1,9 +1,3 @@
-
-// .site-hero {
-//   padding: 4rem 0;
-// }
-
-/* Push the visible content above the canvas */
 .site-hero,
 .site-hero .container,
 .hero__content {
@@ -11,132 +5,203 @@
   z-index: 1;
 }
 
-// .home-pagesection{
-//     background-image: url("/src/assets/images/Gradient\ \(1\).png");
-//   background-size: cover;     
-//   background-repeat: no-repeat; 
-//   background-position: center;  
-// }
+.home-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
- .home-section{
-      display: flex;
-    align-items: center;
-    justify-content: center;
- }
+.home-content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
- .home-content {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
+.heading {
+  font-size: 2em !important;
+  // padding-left: 50px !important;
+}
+
+.heading-name {
+  font-size: 2.4em !important;
+  // padding-left: 45px !important;
+}
+
+.main-name {
+  color: var(--con-text-color);
+}
+
+.Typewriter__wrapper {
+  font-size: 2em !important;
+  // color: #7500fa!important;
+  color: var(--con-text-color);
+  /* color: #be6adf !important; */
+  font-weight: 600 !important;
+}
+
+.Typewriter__cursor {
+  font-size: 2.4em !important;
+  color: var(--con-text-color);
+}
+
+.img-fluid {
+  max-height: 450px;
+}
+
+@media (min-width: 767px) and (max-width: 991px) {
+
   .heading {
-    font-size: 2.4em !important;
-    padding-left: 50px !important;
+    font-size: 1.6em !important;
+    // padding-left: 50px !important;
   }
-  
+
   .heading-name {
-    font-size: 2.5em !important;
-    padding-left: 45px !important;
+    font-size: 1.8em !important;
+    // padding-left: 45px !important;
   }
-  
-  .main-name {
-    color: #7500fa;
-  }
-  
+
   .Typewriter__wrapper {
-    font-size: 2.2em !important;
-    color: #7500fa!important;
-    /* color: #be6adf !important; */
-    font-weight: 600 !important;
+    font-size: 1.6em !important;
   }
+
   .Typewriter__cursor {
-    font-size: 2.4em !important;
-    color: #7500fa !important;
+    font-size: 1.8em !important;
   }
-  
-  @media (max-width: 767px) {
-    .Typewriter__wrapper {
-      font-size: 1.4em !important;
-      font-weight: 500 !important;
-      position: absolute !important;
-    }
-    .Typewriter__cursor {
-      display: none !important;
-    }
+}
+
+
+@media (max-width: 767px) {
+
+  .heading{
+    margin-top: 100px;
+    font-size: 1.4em !important;
   }
-  
+
+  .heading-name {
+    font-size: 1.6em !important;
+    // padding-left: 45px !important;
+  }
+  .Typewriter__wrapper {
+    font-size: 1.4em !important;
+    font-weight: 500 !important;
+    position: absolute !important;
+  }
+
+  .Typewriter__cursor {
+    display: none !important;
+  }
+
   .myAvtar {
-    justify-content: center !important;
-    padding-top: 9em !important;
+    padding-top: 2em !important;
+    padding-bottom: 2em !important;
   }
-  
-  @media (max-width: 767px) {
-    .myAvtar {
-      padding-top: 2em !important;
-      padding-bottom: 2em !important;
+
+  .mob-responsive {
+    height: 90%;
+    row-gap: 20px;
+    // align-items: center;
+  }
+
+  .img-fluid {
+    max-height: 380px;
+    width: 75%;
+  }
+
+  .home-imagecontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.myAvtar {
+  justify-content: center !important;
+  padding-top: 9em !important;
+}
+
+.home-about-section {
+  position: relative;
+  padding-bottom: 70px !important;
+  padding-top: 70px !important;
+  /* background-image: var(--image-gradient), url('./assets/home-bg.jpg'); */
+}
+
+.home-about-description {
+  color: white !important;
+  padding-top: 100px !important;
+  padding-bottom: 20px !important;
+  text-align: center;
+}
+
+.home-about-body {
+  padding-top: 50px;
+  font-size: 1.2em !important;
+  text-align: left;
+}
+
+.home-about-social {
+  text-align: center !important;
+  padding-top: 25px;
+  color: white !important;
+}
+
+.wave {
+  animation-name: wave-animation;
+  /* Refers to the name of your @keyframes element below */
+  animation-duration: 2.1s;
+  /* Change to speed up or slow down */
+  animation-iteration-count: infinite;
+  /* Never stop waving :) */
+  transform-origin: 70% 70%;
+  /* Pivot around the bottom-left palm */
+  display: inline-block;
+}
+
+/* very small screens: hide left title to save space if needed */
+@media (max-width: 420px) {
+  .heading{
+    margin-top: 90px !important;
+  }
+
+      .img-fluid {
+        max-height: 380px;
+        width: 80%;
     }
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  .home-about-section {
-    position: relative;
-    padding-bottom: 70px !important;
-    padding-top: 70px !important;
-    /* background-image: var(--image-gradient), url('./assets/home-bg.jpg'); */
+
+  10% {
+    transform: rotate(14deg);
   }
-  
-  .home-about-description {
-    color: white !important;
-    padding-top: 100px !important;
-    padding-bottom: 20px !important;
-    text-align: center;
+
+  /* The following five values can be played with to make the waving more or less extreme */
+  20% {
+    transform: rotate(-8deg);
   }
-  
-  .home-about-body {
-    padding-top: 50px;
-    font-size: 1.2em !important;
-    text-align: left;
+
+  30% {
+    transform: rotate(14deg);
   }
-  
-  .home-about-social {
-    text-align: center !important;
-    padding-top: 25px;
-    color: white !important;
+
+  40% {
+    transform: rotate(-4deg);
   }
-  
-    .wave {
-    animation-name: wave-animation; /* Refers to the name of your @keyframes element below */
-    animation-duration: 2.1s; /* Change to speed up or slow down */
-    animation-iteration-count: infinite; /* Never stop waving :) */
-    transform-origin: 70% 70%; /* Pivot around the bottom-left palm */
-    display: inline-block;
+
+  50% {
+    transform: rotate(10deg);
   }
-  
-  @keyframes wave-animation {
-    0% {
-      transform: rotate(0deg);
-    }
-    10% {
-      transform: rotate(14deg);
-    } /* The following five values can be played with to make the waving more or less extreme */
-    20% {
-      transform: rotate(-8deg);
-    }
-    30% {
-      transform: rotate(14deg);
-    }
-    40% {
-      transform: rotate(-4deg);
-    }
-    50% {
-      transform: rotate(10deg);
-    }
-    60% {
-      transform: rotate(0deg);
-    } /* Reset for the last half to pause */
-    100% {
-      transform: rotate(0deg);
-    }
+
+  60% {
+    transform: rotate(0deg);
   }
-  
+
+  /* Reset for the last half to pause */
+  100% {
+    transform: rotate(0deg);
+  }
+}

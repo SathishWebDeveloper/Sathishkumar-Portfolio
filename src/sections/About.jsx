@@ -15,7 +15,7 @@ export default function About() {
   const y = useTransform(scrollYProgress, [0, 0.3, 1], [30, 0, -20]); // y is MotionValue
 
   return (
-    <section className="about-section section" ref={sectionRef}>
+    <section className="about-section section" ref={sectionRef} id="about">
       <Container>
         <Row className="justify-content-center">
           <Col lg={10}>

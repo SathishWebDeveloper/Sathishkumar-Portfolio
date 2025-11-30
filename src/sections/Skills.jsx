@@ -24,15 +24,6 @@ import {
   SiVercel,
 } from "react-icons/si";
 
-// import "./SkillsSection.scss";
-
-/* ------------------------
-  TIMING CONFIG (edit these)
-  ------------------------
-  STAGGER_DELAY: per-card delay in seconds (0.05 = 50ms). This controls how much
-                 time separates each card reveal (card i delays i * STAGGER_DELAY).
-  PROGRESS_DURATION: how long (ms) the progress bar + numeric counter take to reach target.
-*/
 const STAGGER_DELAY = 0.09; // seconds between each card revealing (increase for more separation)
 const PROGRESS_DURATION = 2400; // ms to reach full percent (increase for slower progress)
 
@@ -58,11 +49,6 @@ const SKILLS = [
   { name: "Next.js", icon: <SiNextdotjs /> },
   { name: "Express", icon: <SiExpress /> },
 
-  // { name: "Sass", icon: <SiSass /> },
-  // { name: "Vercel", icon: <SiVercel /> },
-  // { name: "Python", icon: <FaPython /> },
-  // { name: "Testing", icon: <SiJest /> },
-  // { name: "API", icon: <FaDatabase /> },
 
   { name: "Security", icon: <FaNodeJs /> },
   { name: "Performance", icon: <FaReact /> },

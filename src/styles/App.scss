@@ -61,14 +61,33 @@ body {
 // }
 
 
-.Typewriter__wrapper {
-    color: rgb(117, 0, 250) !important;
-    font-size: 2.2em !important;
-    font-weight: 600 !important;
-}
+// .Typewriter__wrapper {
+//     color: rgb(117, 0, 250) !important;
+//     font-size: 2.2em !important;
+//     font-weight: 600 !important;
+// }
  .w-100{
   width: 100%;
  }
 .justify-spaceeven{
   justify-content: space-evenly;
+}
+
+.particles-bglayout{
+  width: 100%;
+  height: 100%;
+  position: absolute !important;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+}
+
+.particles-bglayout canvas{
+  position: absolute;
+    top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70% !important;
+  height: 70% !important;
+  z-index: 0;
 }

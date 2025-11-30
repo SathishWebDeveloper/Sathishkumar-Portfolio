@@ -11,29 +11,18 @@ import Orb from '../components/Animation/orb';
 export default function Home() {
   return (
     <section id="home" className="section home-pagesection">
-      {/* <Particles
-        particleColors={["#112149", "#112149"]}
-        particleCount={100}
-        particleSpread={10}
-        speed={0.1}
-        particleBaseSize={100}
-        moveParticlesOnHover={true}
-        alphaParticles={false}
-        disableRotation={false}
+      {/* <Orb
+        hoverIntensity={0.75}
+        rotateOnHover={true}
+        hue={0}
+        forceHoverState={false}
         className={"particles-bglayout"}
-      ></Particles> */}
-        <Orb
-    hoverIntensity={0.75}
-    rotateOnHover={true}
-    hue={0}
-    forceHoverState={false}
-    className={"particles-bglayout"}
-  ></Orb>
+      /> */}
       <Container className="home-content">
-        <Row className='w-100 justify-spaceeven'>
+        <Row className='w-100 justify-spaceeven mob-responsive'>
           <Col md={6} className="home-header">
-            <h1 style={{ paddingBottom: 15 }} className="heading">
-              Hi There!{" "}
+            <h1 className="heading">
+              Hi There!
               <span className="wave" role="img" aria-labelledby="wave">
                 👋🏻
               </span>
@@ -43,21 +32,21 @@ export default function Home() {
               I'M
               <strong className="main-name">
                 {" "}
-                 SK
+                Sathishkumar V C
               </strong>
             </h1>
 
-            <div style={{ padding: 50, textAlign: "left" }}>
+            <div>
               <TypeText />
             </div>
           </Col>
 
-          <Col md={4} style={{ paddingBottom: 20 }}>
+          <Col md={4} className='home-imagecontainer'>
             <img
               src={homeLogo}
               alt="home pic"
               className="img-fluid"
-              style={{ maxHeight: "450px" }}
+              // style={{ maxHeight: "450px" }}
             />
           </Col>
         </Row>
