@@ -51,4 +51,18 @@
   color: #888;
 }
 
+/* src/styles/pdf.css - minimal viewer tweaks */
+.react-pdf__Page__canvas {
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+.react-pdf__Page {
+  margin-bottom: 12px;
+}
+
+/* Optional: hide text layer if it causes overlap, uncomment if needed */
+/* .react-pdf__Page__textContent { display: none !important; } */
+
 

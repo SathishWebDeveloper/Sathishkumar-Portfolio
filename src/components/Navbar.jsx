@@ -4,7 +4,7 @@ import ThemeToggle from "./ThemeToggle"; // adjust path if necessary
 // import "./Navbar.scss";
 
 export default function Navbar({ darkMode, setDarkMode }) {
-  const sections = ["home", "about", "experience", "projects", "skills", "contact"];
+  const sections = ["home", "about", "projects", "skills", "contact"];
   const [isScrolled, setIsScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [activeSection, setActiveSection] = useState("home");

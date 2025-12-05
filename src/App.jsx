@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Loader from "./components/Loader";
 import Navbar from "./components/Navbar";
 import "./styles/App.scss";
+import ResumeViewer from "./sections/Resume";
 
 /**
  * Lazy imports
@@ -12,7 +13,7 @@ const About = lazy(() => import("./sections/About"));
 const Projects = lazy(() => import("./sections/Projects"));
 const Skills = lazy(() => import("./sections/Skills"));
 const Contact = lazy(() => import("./sections/Contact"));
-// const Resume = lazy(() => import("./sections/Resume")); // specific path-only component
+const Resume = lazy(() => import("./sections/Resume")); 
 
 /**
  * Compose a single page that renders ALL sections for the Home route.
@@ -27,6 +28,7 @@ function HomePage() {
       <Projects />
       <Skills />
       <Contact />
+      <ResumeViewer />
     </>
   );
 }
@@ -37,7 +39,7 @@ function HomePage() {
  */
 const routes = [
   { path: "/", name: "Home", element: <HomePage /> },
-  // { path: "/resume", name: "Resume", element: <Resume /> },
+  { path: "/resume", name: "Resume", element: <ResumeViewer /> },
 ];
 
 export default function App() {
