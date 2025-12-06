@@ -6,9 +6,11 @@ import homeLogo from "../assets/images/home-user1.png";
 import GradientBlinds from '../components/Animation/GradientBlinds';
 import LightRays from '../components/Animation/LightRays';
 import Orb from '../components/Animation/orb';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Home() {
+  const navigate = useNavigate();
   return (
     <section id="home" className="section home-pagesection">
       {/* <Orb
@@ -39,6 +41,8 @@ export default function Home() {
             <div className='mb-4'>
               <TypeText />
             </div>
+          
+          <button class="button" onClick={()=> navigate("/resume")}></button>
           </Col>
 
           <Col md={4} className='home-imagecontainer'>

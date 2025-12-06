@@ -6,16 +6,16 @@ import { AiOutlineDownload } from "react-icons/ai";
 import pdf from "../assets/pdf/Sathishkumar_VC_FullStackDeveloper_Resume.pdf";
 
 import { Document, Page, pdfjs } from "react-pdf";
-// import "react-pdf/dist/esm/Page/AnnotationLayer.css";
-// import "react-pdf/dist/esm/Page/TextLayer.css";
+import "react-pdf/dist/esm/Page/AnnotationLayer.css";
+import "react-pdf/dist/esm/Page/TextLayer.css";
+import { useNavigate } from "react-router-dom";
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const resumeLink = `https://raw.githubusercontent.com/SathishWebDeveloper/Sathishkumar-Portfolio/master/src/assets/pdf/Sathishkumar_VC_FullStackDeveloper_Resume.pdf`;
-// SathishWebDeveloper
-// Sathishkumar-Portfolio
 
-const ResumeViewer = () => {
+const Resume = () => {
   const [width, setWidth] = useState(1200);
+  const navigate = useNavigate();
 
   useEffect(() => {
     
@@ -23,14 +23,25 @@ const ResumeViewer = () => {
   }, []);
 
   return (
-    <div>
-      <Container fluid className="resume-section">
-        <Row style={{ justifyContent: "center", position: "relative" }}>
-          <Button
+    <div className="section">
+      <Container fluid className="resume-section mt-5">
+        <Row style={{ justifyContent: "center", position: "relative" }}
+         >  
+                   <Button
+            variant="primary"
+            // target="_blank"
+            onClick={()=> navigate("/")}
+            style={{ maxWidth: "200px" , margin : "50px 20px 20px 0px" }}
+          >  
+            <AiOutlineDownload />
+             Back  to Home
+          </Button> 
+
+                    <Button
             variant="primary"
             href={pdf}
             target="_blank"
-            style={{ maxWidth: "250px" }}
+            style={{ maxWidth: "200px" ,  margin : "50px 20px 20px 0px" }}
           >
             <AiOutlineDownload />
             &nbsp;Download Resume
@@ -44,19 +55,11 @@ const ResumeViewer = () => {
         </Row>
 
         <Row style={{ justifyContent: "center", position: "relative" }}>
-          <Button
-            variant="primary"
-            href={pdf}
-            target="_blank"
-            style={{ maxWidth: "250px" }}
-          >
-            <AiOutlineDownload />
-            &nbsp;Download Resume
-          </Button>
+
         </Row>
       </Container>
     </div>
   )
 }
 
-export default ResumeViewer;
+export default Resume;

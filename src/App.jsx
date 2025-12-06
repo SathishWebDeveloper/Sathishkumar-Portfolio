@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Loader from "./components/Loader";
 import Navbar from "./components/Navbar";
 import "./styles/App.scss";
-import ResumeViewer from "./sections/Resume";
 
 /**
  * Lazy imports
@@ -24,11 +23,10 @@ function HomePage() {
     <>
       <Home />
       <About />
-      {/* <Experience /> */}
       <Projects />
       <Skills />
+      {/* <Resume /> */}
       <Contact />
-      <ResumeViewer />
     </>
   );
 }
@@ -39,7 +37,7 @@ function HomePage() {
  */
 const routes = [
   { path: "/", name: "Home", element: <HomePage /> },
-  { path: "/resume", name: "Resume", element: <ResumeViewer /> },
+  { path: "/resume", name: "Resume", element: <Resume /> },
 ];
 
 export default function App() {

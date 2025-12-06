@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "./ThemeToggle"; // adjust path if necessary
+import { useNavigate } from "react-router-dom";
 // import "./Navbar.scss";
 
 export default function Navbar({ darkMode, setDarkMode }) {
@@ -9,6 +10,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
   const [mounted, setMounted] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const enterAt = 200; // only go to scrolled when > 100
@@ -111,10 +113,10 @@ export default function Navbar({ darkMode, setDarkMode }) {
         aria-label="Main navigation"
       >
         <div className="nav-inner">
-          <div className="nav-left">My Portfolio</div>
+          <div className="nav-left cursor-pointer" onClick={()=> navigate("/")}> My Portfolio</div>
 
           <nav className="nav-center" aria-label="Primary navigation">
-            <ul className="nav-links" role="list">
+            <ul className="nav-links" role="list"> 
               {sections.map((section, idx) => {
                 const label = section.charAt(0).toUpperCase() + section.slice(1);
                 const isActive = activeSection === section;
